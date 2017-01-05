@@ -94,3 +94,39 @@ windows host file
 	127.0.0.1		howru.com 
 #TestSite
 	
+
+USER AUTHENTICATION
+
+1. Update http.conf by adding :
+
+AccessFileName htaccess.acl .htaccess
+
+2. Add “Directory” tag into http.conf as shown below :
+
+<Directory "c:/wamp/www/basic-auth/"> 
+    Options None 
+    AllowOverride all 
+    Order Deny,Allow 
+</Directory>
+
+3. Next step is to create password file.
+
+cd C:\wamp\bin\apache\Apache2.2.11\bin 
+htpasswd -c pwd.txt prash
+
+
+4. Create the htaccess file - htaccess.acl file with the following data.
+
+AuthUserFile C:\wamp\bin\apache\Apache2.2.11\bin\pwd.txt 
+AuthName "Protected" 
+AuthType Basic
+<Limit GET POST> 
+require valid-user 
+</Limit>
+
+saved this .htaccess file in the folder where you want user authentication
+
+SSL ENABLING IN WEBSITE (http ---> https )
+
+download opensilverlight 64bit windows software
+
