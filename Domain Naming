@@ -1,0 +1,51 @@
+Step 1st 
+Go to c:/windows/system32/drivers/etc/hosts
+Open hosts file as administrator
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#::1              localhost
+	127.0.0.1       localhost
+	127.0.0.1		    myweb.com  
+Save the changes
+
+Step 2nd
+open httpd.conf file exists in wamp/bin/apache/apache2.4.23/conf/httpd.conf
+
+#Virtual hosts
+#Include conf/extra/httpd-vhosts.conf
+
+change these lines as below
+Include conf/extra/httpd-vhosts.conf
+Save the changes
+
+Step 3rd
+open httpd-vhosts.conf file exists in  wamp/bin/apache/apache2.4.23/conf/extra/httpd-vhosts.conf
+
+write the code as below
+
+<VirtualHost *:80>
+    ServerAdmin admin@myweb.com
+    #Document base defined which wamp server can identify
+    DocumentRoot "c:/wamp64/www/webservice/" 
+ #webservice is the folder which you want to open when you write myweb.com  
+    ServerName myweb.com
+    ErrorLog "logs/localhost-error.log"
+    CustomLog "logs/localhost-access.log" common
+    #wamp server searches for this section
+
+  <Directory "c:/wamp64/www/webservice/">
+ #similarly here is also the same way , webservice is the folder name
+      AllowOverride None
+
+          # UPDATED for Apache 2.4
+          # Access Control 
+
+   </Directory>
+    <Directory "c:/wamp64/www">
+        AllowOverride None	
+        #Options FollowSymLinks -Indexes
+          # UPDATED for Apache 2.4
+          # Access Control 
+          Require local
+    </Directory>
+</VirtualHost>
