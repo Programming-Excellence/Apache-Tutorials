@@ -1,0 +1,52 @@
+In this Skills Session , we`ll learn how to make our Website access secure by applying Password Security for access the Website
+
+When open website username and password will be asked to open the website else unable to access the website
+
+Step 1st
+Open httpd.conf file exists in wamp/bin/apache/apache2.4.23/conf/httpd.conf
+
+Write code as below at the end of the file
+
+AccessFileName htaccess.acl .htaccess
+<Directory "c:/wamp64/www/basicAuth/">
+  Options None
+  AllowOverride All
+  Order Deny,Allow
+</Directory>
+
+#basicAuth is the folder or website area that you wants to secure 
+
+Save the changes 
+
+Step 2nd
+Open command Prompt as Administrator 
+
+write cd C:/wamp/bin/apache/apache2.4.23/bin (press enter)
+then write htpasswd -c pwd.txt username (press enter)
+then the password will be prompt set any secure password for username
+
+pwd.txt is the file created in the area C:/wamp/bin/apache/apache2.4.23/bin
+you can also give any other file name like access.txt
+
+Step 3rd
+
+Open the basicAuth folder , every developer knows that website folder was put in www/ area of wamp/ folder
+
+Create the file with the name htaccess and extension .acl ...
+like htaccess.acl
+and write following line in that file
+
+AuthUserFile C:\wamp\bin\apache\Apache2.2.11\bin\pwd.txt 
+AuthName "Protected" 
+AuthType Basic
+<Limit GET POST> 
+require valid-user 
+</Limit>
+
+Save the changes
+
+Restart the wamp Server and run the website 
+localhost/basicAuth
+Username and Password window will be asked if the user typed correctly, then website will be opened else not ...
+
+localhost can be opened , its not secured , only basicAuth is secured
