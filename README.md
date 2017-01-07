@@ -1,10 +1,8 @@
 <b><h1>Learning Apache with Programming Excellence</h1></b>
 <hr/>
 <ul>
-<li>
-Assign Domain Name as Virtual Host (localhost)
-Allow particular directory for domain name
-User Authentication 
-SSL Enabling , Secure Website
-</li>
+<li>Assign Domain Name as Virtual Host (localhost)</li>
+<li>Allow particular directory for domain name</li>
+<li>User Authentication <li>
+</li>SSL Enabling , Secure Website<li>
 </ul>
