@@ -1,0 +1,48 @@
+In this Session , Learn how to make Website Secure Sockets Layer Enabled (means to certified our website) 
+
+Like hotmail.com , github.com 
+
+Step 1st
+Download and Install OpenSSL
+
+Search on google (openssl shining light production) 
+download and install it ( dont do any changes just simply next next and finish)
+Remember download openssl according to windows 32bit or 64bit by checking system properties
+
+Step 2nd
+Check that openssl.exe is exists in c:/wamp/bin/apache/apache2.4.23/bin/openssl.exe
+Also check openssl.cnf is exists in c:/wamp/bin/apache/apache2.4.23/conf/openssl.cnf
+
+If these are exists then move to forward step 3 else reinstall wamp server properly
+
+Step 3rd
+Open CommandPrompt as Administrator 
+and write the command as
+c:/wamp/bin/apache/apache2.4.23/bin/ press enter 
+and write the command as below properly
+
+openssl genrsa -aes256 -out private.key 2048 press enter
+(Key will be genereted)
+Enter any pass phase for private.key: (enter any secure password) press enter
+
+Now again write the command as below
+openssl rsa -in private.key -out private.key (press enter )
+
+now Again write the command as below
+openssl req -new -x509 nodes -sha1 -key private.key -out certificate.crt -days 36500 -config c:/wamp/bin/apache/apache2.4.23/conf/openssl.cnf
+(press enter) 
+
+Some Information will be Prompt by cmd , mention all bla bla information country name,..... 
+
+The private.key and certificate.crt files created successfully 
+
+Step 4th
+
+Go to that folder c:/wamp/bin/apache/apache2.4.23/bin/
+These files private and certificate will be shown , copy both these files
+
+Step 5th 
+
+Open folder  c:/wamp/bin/apache/apache2.4.23/conf
+Create folder with the named "key"
+and paste these two files private and certificate in key folder
