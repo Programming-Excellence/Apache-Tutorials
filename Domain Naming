@@ -3,9 +3,8 @@ Go to c:/windows/system32/drivers/etc/hosts
 Open hosts file as administrator
 # localhost name resolution is handled within DNS itself.
 #	127.0.0.1       localhost
-#::1              localhost
 	127.0.0.1       localhost
-	127.0.0.1		    myweb.com  
+	127.0.0.1	myweb.com  
 Save the changes
 
 Step 2nd
@@ -49,3 +48,7 @@ write the code as below
           Require local
     </Directory>
 </VirtualHost>
+
+After make all changes saved Restart the WampServer then open website as
+www.myweb.com
+This will open the page that you mentioned in the folder in last step
