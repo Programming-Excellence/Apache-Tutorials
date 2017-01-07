@@ -1,6 +1,0 @@
-<b><h1>Assign Domain Name as Virtual Host (localhost)</h1></b><br/>
-
-<b>First Step:</b><br/>
-Go to  C:/Windows/System32/drivers/etc
-Open host file in Notepad and edit it
-
