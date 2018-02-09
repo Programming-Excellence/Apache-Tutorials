@@ -2,9 +2,13 @@ Step 1st
 Go to c:/windows/system32/drivers/etc/hosts
 Open hosts file as administrator
 # localhost name resolution is handled within DNS itself.
-#	127.0.0.1       localhost
-	127.0.0.1       localhost
-	127.0.0.1	myweb.com  
+
+#when u write in address web_crud.com it means u call 127.0.0.1:80 (remember 127.0.0.1 == 127.0.0.1:80 == 127.0.0.1:8080 is same thing)
+	127.0.0.1:80    localhost
+	127.0.0.1	web_crud.com
+	127.0.0.1:71	localhost
+	127.0.0.1	xampmain.com
+
 Save the changes
 
 Step 2nd
@@ -22,33 +26,24 @@ open httpd-vhosts.conf file exists in  wamp/bin/apache/apache2.4.23/conf/extra/h
 
 write the code as below
 
-<VirtualHost *:80>
+<VirtualHost 127.0.0.1:80>
     ServerAdmin admin@myweb.com
-    #Document base defined which wamp server can identify
-    DocumentRoot "c:/wamp64/www/webservice/" 
- #webservice is the folder which you want to open when you write myweb.com  
-    ServerName myweb.com
-    ErrorLog "logs/localhost-error.log"
-    CustomLog "logs/localhost-access.log" common
-    #wamp server searches for this section
+    DocumentRoot "c:/xampp/htdocs/testing/abc.php" 
+	
+    ServerName web_crud.com
+    ServerAlias web_crud.com 	
+</VirtualHost>
 
-  <Directory "c:/wamp64/www/webservice/">
- #similarly here is also the same way , webservice is the folder name
-      AllowOverride None
-
-          # UPDATED for Apache 2.4
-          # Access Control 
-
-   </Directory>
-    <Directory "c:/wamp64/www">
-        AllowOverride None	
-        #Options FollowSymLinks -Indexes
-          # UPDATED for Apache 2.4
-          # Access Control 
-          Require local
-    </Directory>
+#u can even change the whole ip not only port like 0.0.0.0:71 but here i just change port
+<VirtualHost 127.0.0.1:71>
+    ServerAdmin admin@myweb.com
+    DocumentRoot "c:/xampp/htdocs/dashboard/" 
+    ServerName xampmain.com
+    ServerAlias xampmain.com
 </VirtualHost>
 
 After make all changes saved Restart the WampServer then open website as
-www.myweb.com
+xampmain.com for access xamp dashboard
+web_crud.com for access your particular php page
+
 This will open the page that you mentioned in the folder in last step
