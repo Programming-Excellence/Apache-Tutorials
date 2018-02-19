@@ -50,3 +50,4 @@ localhost/basicAuth
 Username and Password window will be asked if the user typed correctly, then website will be opened else not ...
 
 localhost can be opened , its not secured , only basicAuth is secured
+
