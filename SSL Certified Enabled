@@ -46,3 +46,4 @@ Step 5th
 Open folder  c:/wamp/bin/apache/apache2.4.23/conf
 Create folder with the named "key"
 and paste these two files private and certificate in key folder
+
